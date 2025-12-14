@@ -28,8 +28,8 @@ spec:
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
-              name: encontros-tech-db-secret  # Nome da Secret criada via CLI
-              key: DATABASE_URL               # ATENÇÃO: Verifique nota abaixo
+              name: encontros-tech-secrets  # Nome da Secret criada via CLI
+              key: database-url               # ATENÇÃO: Verifique nota abaixo
         # --------------------------------
         - name: APP_TITLE
           value: "Encontros Tech"
