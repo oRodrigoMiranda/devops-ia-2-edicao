@@ -20,17 +20,15 @@ spec:
     spec:
       containers:
       - name: encontros-tech
-        image: digaomiranda/encontros-tech:v2
+        image: fabricioveronez/bootcamp-encontros-tech:v1
         ports:
         - containerPort: 8000
         env:
-        # --- ALTERAÇÃO: Uso de Secret ---
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
-              name: encontros-tech-secrets  # Nome da Secret criada via CLI
-              key: DATABASE_URL             # ATENÇÃO: Verifique nota abaixo
-        # --------------------------------
+              name: encontros-tech-secrets
+              key: DATABASE_URL
         - name: APP_TITLE
           value: "Encontros Tech"
         - name: DEBUG
