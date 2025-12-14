@@ -24,8 +24,13 @@ spec:
         ports:
         - containerPort: 8000
         env:
+        # --- ALTERAÇÃO: Uso de Secret ---
         - name: DATABASE_URL
-          value: "postgresql://doadmin:AVNS_b-J-bLvCfu83uLTmuGp@private-db-postgresql-nyc1-12325-do-user-30403048-0.h.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+          valueFrom:
+            secretKeyRef:
+              name: encontros-tech-db-secret  # Nome da Secret criada via CLI
+              key: DATABASE_URL               # ATENÇÃO: Verifique nota abaixo
+        # --------------------------------
         - name: APP_TITLE
           value: "Encontros Tech"
         - name: DEBUG
